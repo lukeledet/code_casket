@@ -36,8 +36,4 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :code_casket, CodeCasket.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "code_casket_dev",
-  hostname: "localhost",
-  pool_size: 10
+  url: {:system, "DATABASE_URL"}

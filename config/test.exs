@@ -12,8 +12,4 @@ config :logger, level: :warn
 # Configure your database
 config :code_casket, CodeCasket.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "code_casket_test",
-  hostname: "localhost",
-  pool: Ecto.Adapters.SQL.Sandbox
+  url: {:system, "DATABASE_URL"}
