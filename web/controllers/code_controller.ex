@@ -7,7 +7,7 @@ defmodule CodeCasket.CodeController do
 
   def index(conn, _params) do
     changeset = Code.changeset(%Code{})
-    render conn, "index.html", changeset: changeset, codes: codes
+    render conn, "index.html", changeset: changeset
   end
 
   def create(conn, %{"code" => code_params}) do
