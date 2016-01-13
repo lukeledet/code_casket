@@ -17,6 +17,11 @@ config :code_casket, CodeCasket.Endpoint,
   cache_static_manifest: "priv/static/manifest.json",
   secret_key_base: System.get_env("SECRET_KEY_BASE")
 
+# Database
+config :code_casket, CodeCasket.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  url: {:system, "DATABASE_URL"}
+
 # Do not print debug messages in production
 config :logger, level: :info
 
