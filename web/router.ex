@@ -17,7 +17,7 @@ defmodule CodeCasket.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", CodeController, :index
-    get "/codes/:id", CodeController, :show
+    get "/codes/:slug", CodeController, :show
     post "/codes", CodeController, :create
   end
 

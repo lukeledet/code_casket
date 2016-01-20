@@ -10,8 +10,8 @@ defmodule CodeCasket.CodeController do
     render conn, "index.html", changeset: changeset
   end
 
-  def show(conn, %{"id" => id}) do
-    code = Repo.get(Code, id)
+  def show(conn, %{"slug" => slug}) do
+    code = Repo.get_by(Code, slug: slug)
     render conn, "show.html", code: code
   end
 
@@ -22,7 +22,7 @@ defmodule CodeCasket.CodeController do
       {:ok, code} ->
         conn
         |> put_flash(:info, "Code created successfully.")
-        |> redirect(to: code_path(conn, :show, code.id))
+        |> redirect(to: code_path(conn, :show, code.slug))
       {:error, changeset} ->
         render(conn, "index.html", changeset: changeset)
     end
